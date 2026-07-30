@@ -1,75 +1,107 @@
-# React + TypeScript + Vite
+# Currency Converter (USD ↔ IRR)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple currency converter built with **React**, **TypeScript**, and **Tailwind CSS**.
 
-Currently, two official plugins are available:
+This application converts **US Dollars (USD)** to **Iranian Rials (IRR)** and vice versa. The exchange rate is entered manually by the user, based on the task requirements.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Convert **USD → IRR**
+* Convert **IRR → USD**
+* User-defined exchange rate
+* Built with **React** and **TypeScript**
+* Uses `useMemo` to avoid unnecessary recalculations
+* Simple and responsive user interface
+* Number formatting using `toLocaleString()`
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* React
+* TypeScript
+* Tailwind CSS
+* Vite
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Getting Started
 
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/currency-converter.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
 ```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Build the project:
+
+```bash
+npm run build
+```
+
+---
+
+## How It Works
+
+1. Enter the current exchange rate of **1 USD** in **Iranian Rial (IRR)**.
+2. Enter the amount you want to convert.
+3. Select the conversion direction:
+
+   * USD → IRR
+   * IRR → USD
+4. The converted value is calculated automatically and displayed on the screen.
+
+---
+
+## Project Structure
+
+```text
+src/
+ ├── App.tsx
+ ├── main.tsx
+ ├── index.css
+ └── ...
+```
+
+---
+
+## Implementation Details
+
+* React Hooks (`useState`) are used to manage user inputs.
+* `useMemo` is used to calculate the conversion result only when one of the dependencies changes:
+
+  * Exchange Rate
+  * Amount
+  * Conversion Direction
+* TypeScript is used for better type safety through the `ConversionDirection` type.
+
+---
+
+## Assumptions
+
+* The exchange rate is entered manually by the user.
+* The application works with **Iranian Rial (IRR)**, not Toman.
+* No external exchange rate API is used.
+
+---
+
+## Resources
+
+* React Documentation
+* TypeScript Documentation
+* Tailwind CSS Documentation
+* Vite Documentation
